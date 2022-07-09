@@ -5,11 +5,11 @@
   (cond
     [(and (equal? 0 (modulo n 3))
           (equal? 0 (modulo n 5)))
-     (~a n " is FizzBuzz")]
+     (string-append (number->string n) " is FizzBuzz")]
     [(equal? 0 (modulo n 3))
-     (~a n " is Fizz")]
+     (string-append (number->string n) " is Fizz")]
     [(equal? 0 (modulo n 5))
-     (~a n " is Buzz")]
+     (string-append (number->string n) " is Buzz")]
     [else n]))
 
 ; (fizzbuzz 1)
