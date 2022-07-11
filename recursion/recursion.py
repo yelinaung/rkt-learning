@@ -45,10 +45,7 @@ def count_multiples(a, b):
     6
     >>>
     """
-    if b % a != 0:
-        return 0
-
-    return 1 + count_multiples(a, b // a)
+    return 0 if b % a != 0 else 1 + count_multiples(a, b // a)
 
 
 assert count_multiples(2, 3) == 0

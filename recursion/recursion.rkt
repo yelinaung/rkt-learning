@@ -3,9 +3,7 @@
 ; counting length recursively
 (printf "==== length ====\n")
 (define (recursive-length lst)
-  (cond
-    [(empty? lst) 0]
-    [else (+ 1 (recursive-length (rest lst)))]))
+  (if (empty? lst) 0 (+ 1 (recursive-length (rest lst)))))
 
 (recursive-length (list 1 2 3 4 7))
 (recursive-length (list 1))
@@ -18,16 +16,14 @@
 ; count function with start, stop
 (printf "==== count ====\n")
 (define (count start stop)
-  (if (< start stop)
-      ; for multiple procedures in condition
-      ; we use 'begin'
+  (if (>= start stop)
+      (void)
       (begin
         (displayln start)
-        (count (+ 1 start) stop))
-      (void)))
-
+        (count (+ 1 start) stop))))
+(printf "count from 1 to 5\n")
 (count 1 5)
-(printf "\n")
+(printf "count from 0 to 10\n")
 (count 0 10)
 (printf "\n")
 
@@ -44,6 +40,7 @@
 (printf "==== count multiples ====\n")
 (define (count-multiples a b)
   (if (equal? 0 (modulo b a)) (+ 1 (count-multiples a (/ b a))) 0))
+
 (count-multiples 2 3)
 (count-multiples 2 5)
 (count-multiples 2 12)
